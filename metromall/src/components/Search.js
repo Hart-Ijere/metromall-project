@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-const Search = () => {
+const Search = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [category, setCategory] = useState("All");
 
   const handleSearch = () => {
-    console.log(`Searching for "${searchQuery}" in category: "${category}"`);
-    // Add logic to handle the search here
+    onSearch(searchQuery, category); // Call the parent-provided onSearch function
   };
 
   return (

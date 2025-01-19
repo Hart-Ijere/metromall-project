@@ -1,22 +1,20 @@
-/*import logo from './logo.svg';*/
 import './App.css';
-import Navbar from './components/Navbar';
+import { Route, Routes } from 'react-router-dom'; 
+import NavBar from './components/Navbar';
 import Footer from "./components/Footer";
-/*import ProductList from "./components/ProductList";*/
-import Hero from "./components/Hero";
-import FeaturedCategory from "./components/FeaturedCategory";
-import FeaturedProduct from "./components/FeaturedProduct";
+import ProductList from "./components/ProductList";
+import Home from "./components/Home";
 
     function App() {
       return (
-        <div>
-          <Navbar />
-          <Hero />
-          <FeaturedCategory />
-          <FeaturedProduct />
-          {/*<ProductList />*/}
-          <Footer /> 
-        </div>
+            <>
+             <NavBar />
+             <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/productList" element={<ProductList /> } />
+             </Routes>
+             <Footer /> 
+           </> 
   );
 }
 

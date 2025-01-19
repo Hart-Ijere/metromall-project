@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Search from "./Search";
 import logo from "./metromall-logo_3.png";
 
@@ -14,40 +15,32 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Metromall Logo" className="h-12 w-auto max-w-xs" />
-        </div>
-
-        {/* Search Component */}
-        <div className="hidden md:block flex-grow flex justify-center mx-4">
-          <Search />
+          <Link to="/">
+            <img src={logo} alt="Metromall Logo" className="h-12 w-auto max-w-xs" />
+          </Link>
         </div>
 
         {/* Navigation Links */}
         <div className="hidden md:block">
-        <ul
-          className={`absolute md:static top-16 left-0 w-full bg-blue-500 md:bg-transparent md:flex md:space-x-6 md:items-center p-4 md:p-0 transition-transform duration-300 ${
-            isMobileMenuOpen ? "block" : "hidden"
-          }`}
-        >
-          <li className="border-b border-white md:border-none">
-            <a href="/" className="block py-2 md:py-0 hover:underline">
-              Home
-            </a>
-          </li>
-          <li className="border-b border-white md:border-none">
-            <a href="/categories" className="block py-2 md:py-0 hover:underline">
-              Categories
-            </a>
-          </li>
-          <li>
-            <a href="/cart" className="block py-2 md:py-0 hover:underline">
-              Cart
-            </a>
-          </li>
-        </ul>
-
+          <ul className="flex space-x-6">
+            <li>
+              <Link to="/" className="hover:underline">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/productList" className="hover:underline">
+                Categories
+              </Link>
+            </li>
+            <li>
+              <Link to="/cartContext" className="hover:underline">
+                Cart
+              </Link>
+            </li>
+          </ul>
         </div>
-        
+
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
@@ -59,10 +52,31 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Search */}
+      {/* Mobile Navigation Links */}
       {isMobileMenuOpen && (
         <div className="block md:hidden p-4">
-          <Search />
+          <ul className="space-y-4">
+            <li>
+              <Link to="/" className="block py-2 hover:underline" onClick={toggleMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/productList" className="block py-2 hover:underline" onClick={toggleMobileMenu}>
+                Categories
+              </Link>
+            </li>
+            <li>
+              <Link to="/cart" className="block py-2 hover:underline" onClick={toggleMobileMenu}>
+                Cart
+              </Link>
+            </li>
+          </ul>
+
+          {/* Mobile Search */}
+          <div className="mt-4">
+            <Search />
+          </div>
         </div>
       )}
     </nav>
