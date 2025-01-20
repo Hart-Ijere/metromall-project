@@ -98,7 +98,7 @@ const Home = () => {
               <h1 className="text-4xl font-bold mb-4">Shop the Best Deals Today</h1>
               <p className="mb-6 text-lg">Exclusive discounts on top products!</p>
               <Link
-                to="/products"
+                to="/productList"
                 className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
               >
                 Shop Now
@@ -117,7 +117,7 @@ const Home = () => {
               <h1 className="text-4xl font-bold mb-4">New Arrivals Are Here</h1>
               <p className="mb-6 text-lg">Discover the latest in fashion and tech.</p>
               <Link
-                to="/products"
+                to="/productList"
                 className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
               >
                 Shop Now
@@ -136,7 +136,7 @@ const Home = () => {
               <h1 className="text-4xl font-bold mb-4">Upgrade Your Home</h1>
               <p className="mb-6 text-lg">Amazing deals on home essentials.</p>
               <Link
-                to="/products"
+                to="/productList"
                 className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
               >
                 Shop Now
@@ -155,7 +155,7 @@ const Home = () => {
               <h1 className="text-4xl font-bold mb-4">Health & Beauty Essentials</h1>
               <p className="mb-6 text-lg">Look good, feel good, save big.</p>
               <Link
-                to="/products"
+                to="/productList"
                 className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
               >
                 Shop Now

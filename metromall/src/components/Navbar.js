@@ -34,7 +34,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/cartContext" className="hover:underline">
+              <Link to="/shoppingCart" className="hover:underline">
                 Cart
               </Link>
             </li>

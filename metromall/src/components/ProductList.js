@@ -1,13 +1,68 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link from React Router
 import Search from "./Search";
+import sofa from "./sofa.jpg";
+import skincare from "./skin-care.jpg";
+import smartwatch from "./smart-watch.jpg";
+import headphone from "./headphone.jpg";
 
 // Mock product data
 const allProducts = [
-  { id: 1, name: "Wireless Headphones", price: 199, rating: 4.5, brand: "Sony", size: "Medium", color: "Black", category: "Electronics" },
-  { id: 2, name: "Smartwatch", price: 149, rating: 4.0, brand: "Apple", size: "Small", color: "Silver", category: "Electronics" },
-  { id: 3, name: "Modern Sofa", price: 499, rating: 4.8, brand: "Ikea", size: "Large", color: "Gray", category: "Home Essentials" },
-  { id: 4, name: "Men's Jacket", price: 89, rating: 4.3, brand: "Adidas", size: "Medium", color: "Blue", category: "Fashion" },
-  { id: 5, name: "Skincare Kit", price: 59, rating: 4.2, brand: "Nivea", size: "Small", color: "White", category: "Health & Beauty" },
+  {
+    id: 1,
+    name: "Wireless Headphones",
+    price: 199,
+    rating: 4.5,
+    brand: "Sony",
+    size: "Medium",
+    color: "Black",
+    category: "Electronics",
+    image: headphone, // Replace this with the actual image URL or local path
+  },
+  {
+    id: 2,
+    name: "Smartwatch",
+    price: 149,
+    rating: 4.0,
+    brand: "Apple",
+    size: "Small",
+    color: "Silver",
+    category: "Electronics",
+    image: smartwatch, // Replace this with the actual image URL or local path
+  },
+  {
+    id: 3,
+    name: "Modern Sofa",
+    price: 499,
+    rating: 4.8,
+    brand: "Ikea",
+    size: "Large",
+    color: "Gray",
+    category: "Home Essentials",
+    image: sofa, // Replace this with the actual image URL or local path
+  },
+  {
+    id: 4,
+    name: "Men's Jacket",
+    price: 89,
+    rating: 4.3,
+    brand: "Adidas",
+    size: "Medium",
+    color: "Blue",
+    category: "Fashion",
+    image: skincare, // Replace this with the actual image URL or local path
+  },
+  {
+    id: 5,
+    name: "Skincare Kit",
+    price: 59,
+    rating: 4.2,
+    brand: "Nivea",
+    size: "Small",
+    color: "White",
+    category: "Health & Beauty",
+    image: skincare, // Replace this with the actual image URL or local path
+  },
 ];
 
 const ProductListingPage = () => {
@@ -64,17 +119,24 @@ const ProductListingPage = () => {
               key={product.id}
               className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
+              {/* Display the product image */}
               <img
-                src={product.image || "https://via.placeholder.com/150"}
+                src={product.image || "https://via.placeholder.com/150"} // Default placeholder if no image is provided
                 alt={product.name}
                 className="w-full h-40 object-cover rounded-t-lg mb-4"
               />
+              {/* Product details */}
               <h3 className="text-lg font-semibold">{product.name}</h3>
               <p className="text-gray-600">${product.price}</p>
               <p className="text-gray-600 text-sm">Rating: {product.rating}</p>
-              <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+
+              {/* View Product Button */}
+              <Link
+                to={`/products/${product.id}`} // Navigate to the product page using its ID
+                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 block text-center"
+              >
                 View Product
-              </button>
+              </Link>
             </div>
           ))
         ) : (
