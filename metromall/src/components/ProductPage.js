@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom"; // Import useParams for accessing the product ID from the URL
 import Slider from "react-slick"; // Import React Slick
+import { CartContext } from "../context/CartContext"; // Import CartContext
 import "slick-carousel/slick/slick.css"; // Slick CSS
 import "slick-carousel/slick/slick-theme.css"; // Slick Theme CSS
 import sofa from "./sofa.jpg";
@@ -83,13 +84,15 @@ const ProductPage = () => {
   const { id } = useParams(); // Get the product ID from the URL
   const product = allProducts.find((item) => item.id === parseInt(id)); // Find the product by ID
 
-  // State for "Add to Cart" feedback
+  const { addToCart } = useContext(CartContext); // Access the addToCart function from CartContext
+
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   // Handle Add to Cart
   const handleAddToCart = () => {
+    addToCart(product); // Add the product to the cart using CartContext
     setIsAddedToCart(true);
-    setTimeout(() => setIsAddedToCart(false), 1500); // Reset after 1.5 seconds
+    setTimeout(() => setIsAddedToCart(false), 1500); // Reset the feedback after 1.5 seconds
   };
 
   if (!product) {
