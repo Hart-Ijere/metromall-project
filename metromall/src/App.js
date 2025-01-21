@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import ShoppingCart from "./components/ShoppingCart";
 import ProductPage from "./components/ProductPage";
 import CheckoutForm from "./components/ChecKoutForm";
+import About from "./components/About";
 //import { CartProvider } from "./context/CartContext";
 
     function App() {
@@ -18,6 +19,7 @@ import CheckoutForm from "./components/ChecKoutForm";
               <Route path="/productList" element={<ProductList /> } />
               <Route path='/shoppingCart' element={<ShoppingCart />} />
               <Route path='/checkoutForm' element={<CheckoutForm />} />
+              <Route path='/about' element={<About />} />
               <Route path="/products/:id" element={<ProductPage />} /> {/* Dynamic route */}
              </Routes>
              <Footer /> 
