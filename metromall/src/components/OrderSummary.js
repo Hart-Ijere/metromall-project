@@ -1,19 +1,36 @@
 import React from "react";
 
-const OrderSummary = () => {
-  const subtotal = 847;
-  const tax = subtotal * 0.1; // 10% tax
-  const discount = 50;
-  const total = subtotal + tax - discount;
-
+const OrderSummary = ({ cartItems, total }) => {
   return (
     <div className="p-4 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-      <p className="mb-2">Subtotal: ${subtotal.toFixed(2)}</p>
-      <p className="mb-2">Tax: ${tax.toFixed(2)}</p>
-      <p className="mb-2">Discount: -${discount.toFixed(2)}</p>
-      <hr className="my-4" />
-      <p className="font-bold text-lg">Total: ${total.toFixed(2)}</p>
+      <h3 className="text-xl font-bold mb-4">Order Summary</h3>
+
+      {/* Display list of cart items */}
+      {cartItems.length === 0 ? (
+        <p className="text-gray-600">Your cart is empty.</p>
+      ) : (
+        <ul className="mb-4">
+          {cartItems.map((item) => (
+            <li key={item.id} className="flex justify-between border-b pb-2 mb-2">
+              <div>
+                <h4 className="font-semibold">{item.name}</h4>
+                <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
+              </div>
+              <p className="text-gray-600">
+                ${(item.price * item.quantity).toFixed(2)}
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Display Total Cost */}
+      <div className="border-t pt-4">
+        <p className="text-lg font-semibold flex justify-between">
+          <span>Total:</span>
+          <span>${total.toFixed(2)}</span>
+        </p>
+      </div>
     </div>
   );
 };

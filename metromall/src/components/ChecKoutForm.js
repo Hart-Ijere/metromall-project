@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext"; // Import CartContext
 import OrderSummary from "./OrderSummary";
 
 const CheckoutForm = () => {
@@ -14,6 +15,8 @@ const CheckoutForm = () => {
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const { cartItems, clearCart } = useContext(CartContext); // Access cart items and clearCart from context
 
   // Form validation function
   const validateForm = () => {
@@ -32,9 +35,25 @@ const CheckoutForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      navigate("/success", { state: { orderDetails: formData } });
+      // Navigate to the success page with order details
+      navigate("/success", {
+        state: {
+          orderDetails: {
+            ...formData,
+            items: cartItems, // Include cart items in the order details
+            total: calculateTotal(), // Calculate total cost
+          },
+        },
+      });
+
+      // Clear the cart after placing the order
+      clearCart();
     }
   };
+
+  // Calculate total price
+  const calculateTotal = () =>
+    cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -133,7 +152,7 @@ const CheckoutForm = () => {
         </form>
 
         {/* Order Summary Section */}
-        <OrderSummary />
+        <OrderSummary cartItems={cartItems} total={calculateTotal()} />
       </div>
     </div>
   );

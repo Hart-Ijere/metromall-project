@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext"; // Import the CartContext
+import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
   // Access context values
@@ -73,9 +74,11 @@ const ShoppingCart = () => {
             >
               Clear Cart
             </button>
+            <Link to="/checkoutForm">
             <button className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors mt-4">
               Proceed to Checkout
             </button>
+            </Link>
           </div>
         </div>
       )}
