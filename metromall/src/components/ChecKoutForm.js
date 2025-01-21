@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext"; // Import CartContext
 import OrderSummary from "./OrderSummary";
 
@@ -143,12 +143,14 @@ const CheckoutForm = () => {
             </div>
           </div>
 
+          <Link to={"/success"}>
           <button
             type="submit"
             className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
           >
             Place Order
           </button>
+          </Link>
         </form>
 
         {/* Order Summary Section */}
