@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+MetroMall
+MetroMall is a feature-rich e-commerce web application built with React. It offers a seamless shopping experience with features like product browsing, advanced search, shopping cart functionality, a secure checkout flow, and user-friendly design.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+Project Overview
+Features
+Tech Stack
+Project Structure
+Setup Instructions
+Usage Guidelines
+Contributing
+License
 
-## Available Scripts
+Project Overview
+MetroMall is designed to be a scalable and responsive e-commerce platform that caters to a wide range of products. It provides an intuitive interface for users to browse categories, search for products, add items to the cart, and securely check out.
 
-In the project directory, you can run:
+Features
+Product Browsing: View products by category and search with filters.
+Shopping Cart: Add, update, or remove items with a real-time summary.
+Checkout Flow: Securely collect user shipping and payment information.
+Dynamic Content: Load product data dynamically with context management.
+Responsive Design: Fully optimized for mobile and desktop users.
+Stripe Integration: Secure payment gateway for credit card processing.
 
-### `npm start`
+Tech Stack
+Frontend: React, Tailwind CSS
+Routing: React Router
+State Management: Context API
+Backend: JSON Server (Mock API)
+Payment Gateway: Stripe (Dev version)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Project Structure
+The project structure follows a modular and component-driven approach:
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── Navbar.js
+│   │   ├── Footer.js
+│   │   ├── Hero.js
+│   │   ├── FeaturedCategory.js
+│   │   ├── FeaturedProduct.js
+│   │   ├── ProductListingPage.js
+│   │   ├── ProductPage.js
+│   │   ├── ShoppingCart.js
+│   │   ├── CheckoutForm.js
+│   │   ├── SuccessPage.js
+│   │   ├── Search.js
+│   │   ├── OrderSummary.js
+│   ├── context/
+│   │   ├── CartContext.js
+│   │   ├── CartProvider.js
+│   ├── App.js
+│   ├── index.js
+│   ├── styles/
+│       ├── tailwind.config.js
+├── README.md
+├── package.json
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Setup Instructions
+1. Clone the Repository:
+   git clone https://github.com/your-username/metromall-project.git
+   cd metromall-project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install Dependencies:
+   npm install
 
-### `npm run build`
+3. Start the Development Server:
+   npm start
+   Open http://localhost:3000 to view it in the browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Run the Mock API: Install JSON Server globally if not already installed:
+   npm install -g json-server
+   
+   Start the server:
+   json-server --watch db.json --port 5000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Build for Production: To create a production build, run:
+   npm run build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Usage Guidelines
+Home Page:
 
-### `npm run eject`
+Browse featured categories and products.
+Search:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Use the search bar to find products by name or category.
+Product Page:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+View detailed information about a product and add it to the cart.
+Shopping Cart:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Update quantities, remove items, or proceed to checkout.
+Checkout:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Complete the form to place an order and view the success message.
+Admin (Optional):
 
-## Learn More
+Use JSON Server to add or modify products.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contributing
+We welcome contributions to improve MetroMall! To contribute:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Fork the repository.
+2. Create a new branch:
+   git checkout -b feature/your-feature-name
 
-### Code Splitting
+3. Commit your changes:
+   git commit -m "Add a descriptive commit message"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Push to the branch:
+   git push origin feature/your-feature-name
 
-### Analyzing the Bundle Size
+5. Open a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
