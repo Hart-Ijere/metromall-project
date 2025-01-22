@@ -93,7 +93,7 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="text-center text-gray-500 text-sm mt-8">
-          © 2024 MetroMall. All rights reserved.
+          © 2025 MetroMall. All rights reserved.
         </div>
       </div>
     </footer>

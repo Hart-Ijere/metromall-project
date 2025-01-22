@@ -34,19 +34,19 @@ const Home = () => {
       id: 1,
       name: "Electronics",
       image: tele,
-      link: "/products?category=Electronics",
+      link: "/productList?category=Electronics",
     },
     {
       id: 2,
       name: "Fashion",
       image: fashion,
-      link: "/products?category=Fashion",
+      link: "/productList?category==Fashion",
     },
     {
       id: 3,
       name: "Health and Beauty",
       image: health,
-      link: "/products?category=Health+and+Beauty",
+      link: "/productList?category=Health+and+Beauty",
     },
   ];
 
